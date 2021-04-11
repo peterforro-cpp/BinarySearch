@@ -11,7 +11,7 @@ namespace Algorithm
 			nums[i] = i + 1;
 		}
 	}
-	
+
 	NumberArray::~NumberArray()
 	{
 		delete[] nums;
@@ -21,7 +21,6 @@ namespace Algorithm
 	{
 		auto startIdx = 0;
 		auto endIdx = (int)(count - 1);
-
 		while (startIdx <= endIdx)
 		{
 			auto middle = (startIdx + endIdx) / 2;
@@ -38,8 +37,29 @@ namespace Algorithm
 				endIdx = middle - 1;
 			}
 		}
-
 		return false;
+	}
+
+	bool NumberArray::recursiveBinSearch(int element, int startIdx, int endIdx)
+	{
+		endIdx = endIdx == -100 ? count : endIdx;
+		auto middle = (startIdx + endIdx) / 2;
+		if (startIdx > endIdx)
+		{
+			return false;
+		}
+		else if (nums[middle] == element)
+		{
+			return true;
+		}
+		else if (nums[middle] < element)
+		{
+			recursiveBinSearch(element, middle + 1, endIdx);
+		}
+		else if (nums[middle] > element)
+		{
+			recursiveBinSearch(element, startIdx, middle - 1);
+		}
 	}
 }
 
