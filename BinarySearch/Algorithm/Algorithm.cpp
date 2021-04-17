@@ -56,7 +56,7 @@ namespace Algorithm
 		{
 			return recursiveBinSearch(element, middle + 1, endIdx);
 		}
-		else if (nums[middle] > element)
+		else
 		{
 			return recursiveBinSearch(element, startIdx, middle - 1);
 		}
