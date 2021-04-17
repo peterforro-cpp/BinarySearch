@@ -42,7 +42,7 @@ namespace Algorithm
 
 	bool NumberArray::recursiveBinSearch(int element, int startIdx, int endIdx)
 	{
-		endIdx = endIdx == -100 ? count : endIdx;
+		endIdx = endIdx == -100 ? count - 1 : endIdx;
 		auto middle = (startIdx + endIdx) / 2;
 		if (startIdx > endIdx)
 		{
@@ -54,11 +54,11 @@ namespace Algorithm
 		}
 		else if (nums[middle] < element)
 		{
-			recursiveBinSearch(element, middle + 1, endIdx);
+			return recursiveBinSearch(element, middle + 1, endIdx);
 		}
 		else if (nums[middle] > element)
 		{
-			recursiveBinSearch(element, startIdx, middle - 1);
+			return recursiveBinSearch(element, startIdx, middle - 1);
 		}
 	}
 }

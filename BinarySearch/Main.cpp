@@ -6,7 +6,10 @@ int main()
 {
 	auto number = -1;
 	auto array = Algorithm::NumberArray(20);
-	std::cout << (array.recursiveBinSearch(number) ? "YES" : "NO") << std::endl;
+	for (auto i = -30; i < 30; ++i)
+	{
+		std::cout << i << ".:" << (array.recursiveBinSearch(i) ? "YES" : "NO") << std::endl;
+	}
 	getchar();
 	return 0;
 }
